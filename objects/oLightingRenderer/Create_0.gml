@@ -1,0 +1,1 @@
+lightingSurface = -1;
