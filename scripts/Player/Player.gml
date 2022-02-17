@@ -46,12 +46,26 @@ function PlayerState_Attack()
 {
 	image_speed = 1;
 	
+	instance_create_layer(x, y, "Skills", oSharp);
+	
 	switch dir
 	{
 		case 0: sprite_index = sPlayerAttackRight; break;
 		case 90: sprite_index = sPlayerAttackFront; break;
 		case 180: sprite_index = sPlayerAttackLeft; break;
 		case 270: sprite_index = sPlayerAttackBack; break;
+	}
+	
+	var thisSkill = instance_create_layer(x, y, "Skills", oSharp);
+	
+	if not thisSkill
+	{
+		with thisSkill
+		{
+			speed = 5;
+			direction = other.image_angle;
+			image_angle = direction;
+		}
 	}
 	
 	if AnimationEnd()
