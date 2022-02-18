@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Utility.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Screenshake",
+  "name": "MakeAttack",
   "tags": [],
   "resourceType": "GMScript",
 }

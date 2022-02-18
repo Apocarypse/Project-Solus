@@ -32,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Misc",
-    "path": "folders/Objects/Misc.yy",
+    "name": "Attacks",
+    "path": "folders/Objects/Attacks.yy",
   },
   "resourceVersion": "1.0",
   "name": "oSharp",

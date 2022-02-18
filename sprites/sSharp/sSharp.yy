@@ -97,8 +97,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Misc",
-    "path": "folders/Sprites/Misc.yy",
+    "name": "Attacks",
+    "path": "folders/Sprites/Attacks.yy",
   },
   "resourceVersion": "1.0",
   "name": "sSharp",

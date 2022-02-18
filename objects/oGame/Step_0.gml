@@ -1,9 +1,4 @@
-// generate a random seed on every game start
-randomize();
-
-global.gamePaused = false;
-
-// declare inputs because gms is stupid
+// check for inputs every step
 global.pauseKey = keyboard_check_pressed(vk_escape);
 global.keyLeft = keyboard_check(ord("A"));
 global.keyRight = keyboard_check(ord("D"));

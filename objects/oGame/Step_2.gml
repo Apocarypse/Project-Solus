@@ -1,12 +1,12 @@
-if keyboard_check_pressed(vk_escape)
+if global.pauseKey
 {
+	// toggle pausing
 	global.gamePaused = not global.gamePaused;
 	
 	if global.gamePaused
 	{
 		with all
 		{
-			gamePausedImageSpeed = image_speed;
 			image_speed = 0;
 		}
 	}
@@ -14,6 +14,8 @@ if keyboard_check_pressed(vk_escape)
 	else
 	{
 		with all
-			image_speed = gamePausedImageSpeed;
+		{
+			image_speed = 1;
+		}
 	}
 }
