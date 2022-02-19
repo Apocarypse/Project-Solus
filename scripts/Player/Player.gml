@@ -86,7 +86,7 @@ function PlayerState_Attack()
 	{
 		attacking = true;
 		
-		MakeAttack(mousePos, attackFacingX, attackFacingY, oSharp);
+		MakeAttack(mousePos, attackFacingX, attackFacingY, currentAttack);
 	}
 	
 	// switch back to free state after animation is over

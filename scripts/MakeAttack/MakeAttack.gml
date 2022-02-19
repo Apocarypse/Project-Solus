@@ -1,6 +1,6 @@
-function MakeAttack(mousePos, attackFacingX, attackFacingY, attackSprite)
+function MakeAttack(mousePos, attackFacingX, attackFacingY, attackObject)
 {
-	with instance_create_layer(floor(x + (15 * attackFacingX)), floor(y) + (10 * attackFacingY), "Skills", attackSprite)
+	with instance_create_layer(floor(x + (15 * attackFacingX)), floor(y) + (10 * attackFacingY), "Skills", attackObject)
 	{
 		direction = mousePos;
 	}

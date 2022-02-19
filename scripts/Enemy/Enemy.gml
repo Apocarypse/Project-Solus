@@ -1,4 +1,4 @@
 function EnemyHit()
 {
-	sprite_index = sSlimeHit;
+	eHP -= 1;
 }
