@@ -6,18 +6,7 @@ function PlayerState_Free()
 	{
 		dir = point_direction(0, 0, horizontalInput, verticalInput);
 		
-		var moveX = lengthdir_x(moveSpeed, dir);
-		var moveY = lengthdir_y(moveSpeed, dir);
-	
-		// collision
-		if place_meeting(x + moveX, y, oCol)
-			moveX = 0;
-		
-		if place_meeting(x, y + moveY, oCol)
-			moveY = 0;
-	
-		x += moveX;
-		y += moveY;
+		Collision();
 	}
 	
 	#endregion
@@ -66,6 +55,15 @@ function PlayerState_Attack()
 	// make sure animation isn't paused
 	image_speed = 1;
 	
+	// clear hit list
+	with oAttack
+	{
+		if not ds_exists(hitByAttack, ds_type_list)
+			hitByAttack = ds_list_create();
+	
+		ds_list_clear(hitByAttack);
+	}
+	
 	// building facing data based off mouse position
 	var mousePos = point_direction(x, y, mouse_x, mouse_y);
 	var facing = round(mousePos / 90);
@@ -94,5 +92,24 @@ function PlayerState_Attack()
 	{
 		state = PlayerState_Free;
 		attacking = false;
+	}
+}
+
+function HitPlayer(dirHitFrom, force, damage)
+{
+	if oPlayer.invulnerable <= 0
+	{
+		oPlayer.hp = max(0, oPlayer.hp - damage)
+		
+		if oPlayer.hp > 0
+		{
+			with oPlayer
+			{
+				dir = dirHitFrom;
+				Collision();
+				invulnerable = 60;
+				Screenshake(1.5, 2);
+			}
+		}
 	}
 }
