@@ -95,6 +95,44 @@ function PlayerState_Attack()
 	}
 }
 
+function PlayerState_Hit()
+{	
+	//sprite_index = hitSprite;
+	
+	var _distanceToGo = point_distance(x, y, xTo, yTo);
+	
+	if _distanceToGo > moveSpeed
+	{
+		image_speed = 1;
+		dir = point_direction(x, y, xTo, yTo);
+		horizontalSpeed = lengthdir_x(moveSpeed, dir);
+		verticalSpeed = lengthdir_y(moveSpeed, dir);
+		
+		if horizontalSpeed != 0
+			image_xscale = sign(horizontalSpeed);
+			
+		if Collision()
+		{
+			xTo = x;
+			yTo = y;
+		}
+	}
+	
+	else
+	{
+		x = xTo;
+		y = yTo;
+		
+		state = PlayerState_Free;
+	}
+	
+}
+
+function PlayerState_Dead()
+{
+	game_restart();
+}
+
 function HitPlayer(dirHitFrom, force, damage)
 {
 	if oPlayer.invulnerable <= 0
@@ -105,11 +143,16 @@ function HitPlayer(dirHitFrom, force, damage)
 		{
 			with oPlayer
 			{
-				dir = dirHitFrom;
-				Collision();
 				invulnerable = 60;
+				state = PlayerState_Hit;
+				image_index = 0;
+				xTo = x - lengthdir_x(force, dirHitFrom);
+				yTo = y - lengthdir_y(force, dirHitFrom);
 				Screenshake(1.5, 2);
 			}
 		}
+		
+		else
+			state = PlayerState_Dead;
 	}
 }

@@ -22,7 +22,6 @@ aggroCheckDuration = 5;
 aggroRadius = 48;
 attackRadius = 15;
 forceTouch = 32;
-
 // stats
 hp = 1;
 damage = 5;

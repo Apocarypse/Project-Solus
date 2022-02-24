@@ -1,1 +1,1 @@
-HitPlayer(point_direction(x, y, oPlayer.x, oPlayer.y), forceTouch, damage);
+HitPlayer(point_direction(x, y, oPlayer.x, oPlayer.y), forceTouch * -1, damage);
